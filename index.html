@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1-web</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h2>Матвеева Полина Павловна, группа P3215, вариант 466662</h2>
+    <canvas id="coordinateSystem" width="400px" height="400px"></canvas>
+    <form id="pointForm">
+        <div class="input-form">
+            <label for="x">Значение X:</label>
+            <input type="text" id="x" name="x" max 5>
+        </div>
+
+        <div class="input-form">
+            <label for="y">Значение Y:</label>
+            <select id="y" name="y">
+                <option value="">Выберите Y</option>
+                <option value="-3">-3</option>
+                <option value="-2">-2</option>
+                <option value="-1">-1</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="input-form">
+            <label>Значение R:</label>
+            <div id="r">
+                <button type="button" class="r-button" value="1">1</button>
+                <button type="button" class="r-button" value="1.5">1.5</button>
+                <button type="button" class="r-button" value="2">2</button>
+                <button type="button" class="r-button" value="2.5">2.5</button>
+                <button type="button" class="r-button" value="3">3</button>
+            </div>
+        </div>
+
+        <input type="submit" value="Отправить" id="submitButton">
+    </form>
+
+    <div class="results">
+        <h3>Результаты попадания</h3>
+        <div class="table">
+            <table id="resultsTable">
+                <thead>
+                <tr>
+                    <td>X</td>
+                    <td>Y</td>
+                    <td>R</td>
+                    <td>Результат</td>
+                    <td>Время</td>
+                    <td>Время выполнения</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="js/validator.js"></script>
+<script src="js/coordinateSystem.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
