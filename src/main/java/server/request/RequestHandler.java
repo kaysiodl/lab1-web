@@ -3,6 +3,7 @@ package server.request;
 import com.fastcgi.FCGIInterface;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import lombok.extern.java.Log;
 import server.response.Result;
 import server.check.HitChecker;
 import server.fcgi.ServerException;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.time.ZoneId;
 
-
+@Log
 public class RequestHandler {
 
     public static String handleJsonRequest() throws IOException {
@@ -24,16 +25,20 @@ public class RequestHandler {
             double y = json.get("y").getAsDouble();
             double r = json.get("r").getAsDouble();
 
+            log.info("Received ");
+
             Long startTime = System.nanoTime();
             boolean hit = HitChecker.checkHit(x, y, r);
             Long endTime = System.nanoTime();
 
-            Result result = new Result(x,
-                    y,
-                    r,
-                    hit,
-                    String.valueOf(LocalTime.now(ZoneId.of("Europe/Moscow")).withNano(0)),
-                    String.valueOf(endTime - startTime));
+            Result result = Result.builder()
+                    .x(x)
+                    .y(y)
+                    .r(r)
+                    .hit(hit)
+                    .currentTime(String.valueOf(LocalTime.now(ZoneId.of("Europe/Moscow")).withNano(0)))
+                    .time(String.valueOf(endTime - startTime))
+                    .build();
 
             return result.toJson();
 

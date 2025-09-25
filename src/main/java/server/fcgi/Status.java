@@ -1,9 +1,13 @@
 package server.fcgi;
 
+import lombok.Getter;
+
+@Getter
 public enum Status {
     OK(200),
     BAD_REQUEST(400),
     NOT_FOUND(404),
+    NOT_ALLOWED(405),
     INTERNAL_SERVER_ERROR(500);
 
     private final int code;
@@ -15,7 +19,4 @@ public enum Status {
         return this.name();
     }
 
-    public int getCode() {
-        return code;
-    }
 }

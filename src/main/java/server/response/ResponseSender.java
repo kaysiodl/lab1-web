@@ -13,8 +13,8 @@ public class ResponseSender {
         System.out.println(fcgiResponse.buildResponse());
     }
 
-    public static void sendError(ServerException serverException) {
-        sendJsonResponse(serverException.getStatus(), serverException.toJson());
+    public static void sendError(Status status, String message) {
+        sendJsonResponse(status, message);
     }
 }
 

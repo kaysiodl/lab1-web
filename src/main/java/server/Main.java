@@ -16,18 +16,23 @@ public class Main {
 
             String method = FCGIInterface.request.params.getProperty("REQUEST_METHOD");
 
-            if (method.equals("POST")) {
-                try {
-                    String contentType = FCGIInterface.request.params.getProperty("CONTENT_TYPE");
-                    if (contentType.equals("application/json")) {
-                        String result = handleJsonRequest();
-                        sendJsonResponse(Status.OK, result);
-                    } else {
-                        //че сюда вставить хз
-                    }
-                } catch (Exception e) {
-                    sendError(new ServerException(Status.INTERNAL_SERVER_ERROR, e.getMessage()));
+            if (!method.equals("POST")) {
+                sendError(Status.NOT_ALLOWED, "Метод не поддерживается");
+                continue;
+            }
+
+            try {
+                String contentType = FCGIInterface.request.params.getProperty("CONTENT_TYPE");
+                if (contentType.equals("application/json")) {
+                    String result = handleJsonRequest();
+                    sendJsonResponse(Status.OK, result);
+                } else {
+                    sendError(Status.BAD_REQUEST, "Данные переданы не в формате JSON");
                 }
+            } catch (ServerException e) {
+                sendError(e.getStatus(), e.getMessage());
+            } catch (Exception e) {
+                sendError(Status.INTERNAL_SERVER_ERROR, e.getMessage());
             }
         }
     }

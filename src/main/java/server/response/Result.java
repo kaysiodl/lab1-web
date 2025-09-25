@@ -1,7 +1,9 @@
 package server.response;
 
 import com.google.gson.Gson;
+import lombok.Builder;
 
+@Builder
 public record Result(Double x, Double y, Double r, boolean hit, String currentTime, String time) {
     public String toJson(){
         Gson gson = new Gson();
