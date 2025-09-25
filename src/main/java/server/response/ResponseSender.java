@@ -1,6 +1,8 @@
-package server.fcgi;
+package server.response;
 
-import server.JsonResponse;
+import server.fcgi.FcgiResponse;
+import server.fcgi.ServerException;
+import server.fcgi.Status;
 
 public class ResponseSender {
     public static void sendJsonResponse(Status status, String body) {
@@ -11,7 +13,9 @@ public class ResponseSender {
         System.out.println(fcgiResponse.buildResponse());
     }
 
-    //errors
+    public static void sendError(ServerException serverException) {
+        sendJsonResponse(serverException.getStatus(), serverException.toJson());
+    }
 }
 
 

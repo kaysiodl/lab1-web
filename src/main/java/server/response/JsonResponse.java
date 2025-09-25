@@ -1,4 +1,4 @@
-package server;
+package server.response;
 
 import server.fcgi.FcgiResponse;
 import server.fcgi.FcgiResponseBuilder;
