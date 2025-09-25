@@ -3,10 +3,14 @@ package server;
 import com.fastcgi.FCGIInterface;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import server.fcgi.FcgiResponse;
+import server.fcgi.Status;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,8 +40,17 @@ public class Main {
         double x = json.get("x").getAsDouble();
         double y = json.get("y").getAsDouble();
         double r = json.get("r").getAsDouble();
-        checkHit(x, y, r);
 
+        Long startTime = System.nanoTime();
+        Long endTime = System.nanoTime();
+        boolean hit = checkHit(x, y, r);
+        Result result = new Result(x,
+                y,
+                r,
+                hit,
+                String.valueOf(LocalTime.now()),
+                String.valueOf(endTime - startTime));
+        sendJsonResponse(Status.OK, result.toJson());
     }
 
     private static String readBody() throws IOException {
@@ -51,5 +64,14 @@ public class Main {
                 ((y >= -x - (r / 2)) && x <= 0 && y <= 0);
     }
 
+    //потом удалить этот блок
+    public static void sendJsonResponse(Status status, String body) {
+        sendResponse(new JsonResponse(status, body));
+    }
+
+    public static void sendResponse(FcgiResponse fcgiResponse) {
+        System.out.println(fcgiResponse.buildResponse());
+    }
+    //потом удалить
 
 }
