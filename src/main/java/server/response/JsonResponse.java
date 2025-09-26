@@ -1,13 +1,12 @@
 package server.response;
 
-import server.fcgi.FcgiResponse;
 import server.fcgi.FcgiResponseBuilder;
 import server.fcgi.Status;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class JsonResponse implements FcgiResponse {
+public class JsonResponse {
     private final Status status;
     private final String body;
 
@@ -16,9 +15,8 @@ public class JsonResponse implements FcgiResponse {
         this.body = body;
     }
 
-    @Override
     public String buildResponse() {
-        FcgiResponse fcgiResponse = FcgiResponseBuilder
+        FcgiResponseBuilder fcgiResponse = FcgiResponseBuilder
                 .builder()
                 .status(status)
                 .headers(List.of("Content-Type: application/json",

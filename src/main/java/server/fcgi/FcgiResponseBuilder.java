@@ -5,7 +5,7 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public class FcgiResponseBuilder implements FcgiResponse {
+public class FcgiResponseBuilder{
     private final Status status;
     private final List<String> headers;
     private final String body;
@@ -16,7 +16,6 @@ public class FcgiResponseBuilder implements FcgiResponse {
         this.body = body;
     }
 
-    @Override
     public String buildResponse() {
         StringBuilder sb = new StringBuilder();
         sb.append("Status: ");

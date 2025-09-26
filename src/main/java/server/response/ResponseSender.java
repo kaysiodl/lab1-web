@@ -1,7 +1,5 @@
 package server.response;
 
-import server.fcgi.FcgiResponse;
-import server.fcgi.ServerException;
 import server.fcgi.Status;
 
 public class ResponseSender {
@@ -9,7 +7,7 @@ public class ResponseSender {
         sendResponse(new JsonResponse(status, body));
     }
 
-    public static void sendResponse(FcgiResponse fcgiResponse) {
+    public static void sendResponse(JsonResponse fcgiResponse) {
         System.out.println(fcgiResponse.buildResponse());
     }
 

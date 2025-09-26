@@ -16,7 +16,6 @@ function updateData() {
 document.addEventListener('DOMContentLoaded', function () {
     draw();
     drawLabels();
-    // updateLabels(6);
 });
 
 rButtons.forEach(button => {
@@ -32,12 +31,19 @@ rButtons.forEach(button => {
     });
 });
 
-submitButton.addEventListener('click', function () {
+submitButton.addEventListener('click', (event) => {
     event.preventDefault();
     const data = updateData();
     let isValid = printErrors(data);
+
     if (isValid) {
-        // sendToServer(data).then(r => {});
+        sendRequest(data.x, data.y, data.r)
+            .then(data => {
+                addTableRow(data);
+            })
+            .catch(err => {
+                alert(err);
+            });
     }
 });
 
@@ -53,14 +59,24 @@ function printError(element, message) {
 function printErrors(data) {
     clearErrors();
     let isValid = true;
-    if (!validate(data.x)) {printError(inputX, 'Введите значение Х'); isValid = false}
-    else if (!validateNumber(data.x)) {printError(inputX, 'Введите целое или дробное число'); isValid = false}
-    else if (!validateRange(data.x, -3, 5)) {
+    if (!validate(data.x)) {
+        printError(inputX, 'Введите значение Х');
+        isValid = false;
+    } else if (!validateNumber(data.x)) {
+        printError(inputX, 'Введите целое или дробное число');
+        isValid = false;
+    } else if (!validateRange(data.x, -3, 5)) {
         printError(inputX, 'Число должно быть в пределах от -3 до 5');
         isValid = false;
     }
-    if (!validate(data.y)) {printError(inputY, 'Выберите значение Y'); isValid = false}
-    if (!validate(data.r)) {printError(inputR, 'Выберите значение R'); isValid = false}
+    if (!validate(data.y)) {
+        printError(inputY, 'Выберите значение Y');
+        isValid = false;
+    }
+    if (!validate(data.r)) {
+        printError(inputR, 'Выберите значение R');
+        isValid = false;
+    }
     return isValid;
 }
 
@@ -68,35 +84,38 @@ function clearErrors() {
     document.querySelectorAll('.error-text').forEach(element => element.remove());
 }
 
-// async function sendToServer(data) {
-//     try {
-//         const formData = new FormData();
-//         formData.append('x', data.x);
-//         formData.append('y', data.y);
-//         formData.append('r', data.r);
-//
-//         const response = await fetch('/', {
-//             method: 'POST',
-//             body: formData
-//         });
-//
-//         if (response.ok) {
-//             const result = await response.text();
-//             displayResult(result);
-//         } else {
-//             throw new Error('Server error');
-//         }
-//     } catch (error) {
-//         console.error('Error:', error);
-//         displayResult('Ошибка соединения с сервером');
-//     }
-// }
-//
-// function displayResult(result) {
-//     let resultsContainer;
-//     if (resultsContainer) {
-//         resultsContainer.innerHTML = `<div class="result">${result}</div>`;
-//     } else {
-//         alert(result);
-//     }
-// }
+async function sendRequest(x, y, r) {
+    try {
+        const response = await fetch('http://localhost:8080/check',{    //fcgi-bin/server.jar/check', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({x, y, r})
+        });
+
+        if (!response.ok) throw new Error(`${response.status}, ${response.message}`);
+        return await response.json();
+    } catch (error) {
+        throw new Error(`${error.message}`);
+    }
+}
+
+function addTableRow(data) {
+    const table = document
+        .getElementById("resultsTable")
+        .getElementsByTagName('tbody')[0];
+    const row = table.insertRow();
+
+    addCell(row, data.x);
+    addCell(row, data.y);
+    addCell(row, data.r);
+    addCell(row, data.hit);
+    addCell(row, data.currentTime);
+    addCell(row, data.time);
+}
+
+function addCell(row, value) {
+    const cell = row.insertCell();
+    const text = document.createTextNode(value);
+    cell.appendChild(text);
+}
+

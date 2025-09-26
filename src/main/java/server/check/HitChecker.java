@@ -3,8 +3,6 @@ package server.check;
 import server.fcgi.ServerException;
 import server.fcgi.Status;
 
-import static server.response.ResponseSender.sendError;
-
 public class HitChecker {
     private static final double MAX_VALUE = 5.0;
     private static final double MIN_VALUE = -3.0;

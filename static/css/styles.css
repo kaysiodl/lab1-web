@@ -22,7 +22,8 @@ body {
     backdrop-filter: blur(5px);
 }
 
-h2 {
+#header {
+    font-family: monospace;
     text-align: center;
     color: #d48a8a;
     font-weight: 500;
@@ -49,7 +50,7 @@ h2 {
     max-width: 500px;
 }
 
-.r-button{
+.r-button {
     margin-bottom: 25px;
     background: linear-gradient(to right, #f4acb7, #ffcad4);
     padding: 12px 25px;
@@ -57,11 +58,11 @@ h2 {
     border: 2px solid #ec9da9;
 }
 
-.r-button:hover{
+.r-button:hover {
     background: linear-gradient(to right, #ec9da9, #f3b0b0);
 }
 
-.r-button:active{
+.r-button:active {
     background: linear-gradient(to right, #c65e6c, #f3b0b0);
 }
 
@@ -83,7 +84,7 @@ input[type="text"], select {
     transition: all 0.3s ease;
 }
 
-.input-form{
+.input-form {
     margin-bottom: 40px;
 }
 
@@ -153,13 +154,16 @@ th, td {
     text-align: center;
 }
 
+
 th {
     font-weight: 600;
+    color: #c65e6c;
+    font-size: 12px;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #fff9f9;
-}
+/*tbody tr:nth-child(even) {*/
+/*    background-color: #fff9f9;*/
+/*}*/
 
 tbody tr:hover {
     background-color: #ffefef;
