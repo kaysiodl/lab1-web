@@ -4,10 +4,9 @@ import com.fastcgi.FCGIInterface;
 import server.fcgi.ServerException;
 import server.fcgi.Status;
 
-import java.io.IOException;
-
 import static server.request.RequestHandler.handleJsonRequest;
-import static server.response.ResponseSender.*;
+import static server.response.ResponseSender.sendError;
+import static server.response.ResponseSender.sendJsonResponse;
 
 
 public class Main {

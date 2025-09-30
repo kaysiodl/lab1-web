@@ -16,6 +16,7 @@ function updateData() {
 document.addEventListener('DOMContentLoaded', function () {
     draw();
     drawLabels();
+    loadResults();
 });
 
 rButtons.forEach(button => {
@@ -40,6 +41,7 @@ submitButton.addEventListener('click', (event) => {
         sendRequest(data.x, data.y, data.r)
             .then(data => {
                 addTableRow(data);
+                saveResult(data);
             })
             .catch(err => {
                 alert(err);
@@ -86,7 +88,7 @@ function clearErrors() {
 
 async function sendRequest(x, y, r) {
     try {
-        const response = await fetch('http://localhost:8080/check',{    //fcgi-bin/server.jar/check', {
+        const response = await fetch('http://localhost:8080/check', {         //24055/fcgi-bin/server.jar/check
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({x, y, r})
