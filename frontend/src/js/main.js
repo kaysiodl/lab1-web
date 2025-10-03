@@ -7,12 +7,11 @@ import {
 import {
     draw,
     drawLabels,
-    updateLabels
+    animateLabels,
 } from './coordinateSystem'
 
 import {
     saveResult,
-    loadResults
 } from './storage'
 
 import '../scss/styles.scss'
@@ -23,6 +22,7 @@ const inputX = document.getElementById('x');
 const inputY = document.getElementById('y');
 const inputR = document.getElementById('r');
 let r = null;
+const clearButton = document.getElementById('clearButton');
 
 function updateData() {
     return {
@@ -41,13 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
 rButtons.forEach(button => {
     button.addEventListener('click', function () {
         r = this.value;
-
         const value = parseFloat(button.value);
+        // draw();
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        draw();
-        updateLabels(value);
+        animateLabels(value);
     });
 });
 
@@ -125,6 +122,7 @@ function addTableRow(data) {
         .getElementById("resultsTable")
         .getElementsByTagName('tbody')[0];
     const row = table.insertRow();
+    row.classList.add('table-row');
 
     addCell(row, data.x);
     addCell(row, data.y);
@@ -140,3 +138,20 @@ function addCell(row, value) {
     cell.appendChild(text);
 }
 
+clearButton.addEventListener('click', () => {
+    localStorage.clear();
+    document.querySelectorAll('.table-row').forEach(element => element.remove());
+})
+
+function loadResults() {
+    try {
+        const results = JSON.parse(localStorage.getItem('points')) || [];
+        results.forEach(result => {
+            addTableRow(result)
+        });
+
+    } catch (error) {
+        console.error('Ошибка при загрузке данных:', error);
+        localStorage.setItem('pointResults', JSON.stringify([]));
+    }
+}

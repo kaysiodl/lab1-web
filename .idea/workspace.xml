@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1759e386-53a6-4287-9791-06d9327362d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/fastcgi_lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/httpd.conf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/httpd.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/rollup.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/rollup.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/js/coordinateSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/coordinateSystem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/js/fading.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/js/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/scss/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/scss/styles.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lab1-web" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lab1-web" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="SCSS File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kaysiodl&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kaysiodl/lab1-web.git&quot;,
+    &quot;accountId&quot;: &quot;e937d0f3-acb7-4c5d-af61-3b6d0c298e7f&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="32N7piWLd0zmmYnR3gg0KE4WuXD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/OneDrive - ITMO UNIVERSITY/Рабочий стол/itmo/Веб/lab1-web&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\OneDrive - ITMO UNIVERSITY\Рабочий стол\itmo\Веб\lab1-web\libs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\OneDrive - ITMO UNIVERSITY\Рабочий стол\itmo\Веб\lab1-web\backend" />
+      <recent name="C:\Users\Admin\OneDrive - ITMO UNIVERSITY\Рабочий стол\itmo\Веб\lab1-web\frontend" />
+      <recent name="C:\Users\Admin\OneDrive - ITMO UNIVERSITY\Рабочий стол\itmo\Веб\lab1-web\static\scss" />
+      <recent name="C:\Users\Admin\OneDrive - ITMO UNIVERSITY\Рабочий стол\itmo\Веб\lab1-web\static" />
+      <recent name="C:\Users\Admin\OneDrive - ITMO UNIVERSITY\Рабочий стол\itmo\Веб\lab1-web" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1759e386-53a6-4287-9791-06d9327362d9" name="Changes" comment="" />
+      <created>1757249363247</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757249363247</updated>
+      <workItem from="1757249364370" duration="20884000" />
+      <workItem from="1757576480399" duration="421000" />
+      <workItem from="1757603409108" duration="10243000" />
+      <workItem from="1757687192337" duration="32000" />
+      <workItem from="1757776332965" duration="5588000" />
+      <workItem from="1757791327961" duration="3684000" />
+      <workItem from="1757852979258" duration="14614000" />
+      <workItem from="1758275261536" duration="3192000" />
+      <workItem from="1758296321217" duration="8315000" />
+      <workItem from="1758307243262" duration="3692000" />
+      <workItem from="1758468128236" duration="5601000" />
+      <workItem from="1758551387832" duration="3782000" />
+      <workItem from="1758570651603" duration="5297000" />
+      <workItem from="1758628898502" duration="5358000" />
+      <workItem from="1758636046075" duration="10531000" />
+      <workItem from="1758806462070" duration="3239000" />
+      <workItem from="1758827685473" duration="18541000" />
+      <workItem from="1758890837785" duration="3778000" />
+      <workItem from="1758898983356" duration="724000" />
+      <workItem from="1758902650348" duration="7163000" />
+      <workItem from="1759061295297" duration="1566000" />
+      <workItem from="1759092323068" duration="353000" />
+      <workItem from="1759104264666" duration="622000" />
+      <workItem from="1759133404411" duration="1756000" />
+      <workItem from="1759164640506" duration="593000" />
+      <workItem from="1759212498344" duration="7311000" />
+      <workItem from="1759304402239" duration="1981000" />
+      <workItem from="1759318609006" duration="1243000" />
+      <workItem from="1759477048353" duration="345000" />
+      <workItem from="1759477408859" duration="442000" />
+      <workItem from="1759477930351" duration="22000" />
+      <workItem from="1759477963452" duration="4940000" />
+      <workItem from="1759485285277" duration="3985000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
+  </component>
+</project>

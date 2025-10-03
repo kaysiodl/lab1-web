@@ -1,7 +1,7 @@
 services:
   fcgi:
     build:
-      context: ..
+      context: .
       dockerfile: Dockerfile
     networks:
       backend:
@@ -12,7 +12,7 @@ services:
       - "8080:80"
     volumes:
       - "./httpd.conf:/usr/local/apache2/conf/httpd.conf"
-      - "./static:/var/www"
+      - "../frontend:/usr/local/apache2/htdocs"
     networks:
       backend:
 networks:

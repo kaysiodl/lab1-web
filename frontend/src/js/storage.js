@@ -25,16 +25,3 @@ export function saveResult(result) {
     localStorage.setItem('points', JSON.stringify(results));
 }
 
-
-export function loadResults() {
-    try {
-        const results = JSON.parse(localStorage.getItem('points')) || [];
-        results.forEach(result => {
-            addTableRow(result)
-        });
-
-    } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
-        localStorage.setItem('pointResults', JSON.stringify([]));
-    }
-}

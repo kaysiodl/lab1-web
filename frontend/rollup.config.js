@@ -4,6 +4,8 @@ import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 import clean from '@rollup-extras/plugin-clean';
 
+const production = !process.env.ROLLUP_WATCH;
+
 export default {
     input: './src/js/main.js',
     output: {
@@ -22,11 +24,11 @@ export default {
             target: 'index.html'
         }),
 
-        serve({
+        !production && serve({
             open: true,
-            port: 3000,
+            port: 8080,
             contentBase: './build',
         }),
-        livereload('./build')
+        !production && livereload('./build')
     ]
 }

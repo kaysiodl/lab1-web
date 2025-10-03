@@ -9,6 +9,8 @@ const radius = 160;
 const centerX = width / 2;
 const centerY = height / 2;
 
+let oldRadius = 'R';
+
 const shapesInfo = {
     fillStyle: 'rgb(243, 176, 176, 0.5)',
     strokeStyle: '#d48a8a'
@@ -31,6 +33,9 @@ export function draw() {
     drawGrid();
     drawAxes();
     drawShapes();
+    labels.forEach(label => {
+        drawPoints(label);
+    });
 }
 
 function drawLine(x1, y1, x2, y2, color, lineWidth) {
@@ -83,11 +88,11 @@ export function drawLabels() {
 
     labels.forEach(label => {
         ctx.fillText(label.text, centerX + label.x + 5, centerY - label.y - 5);
-        drawPoints(label);
     });
 }
 
 function drawPoints(label) {
+    ctx.fillStyle = 'black';
     ctx.beginPath();
     ctx.arc(label.x + centerX, label.y + centerY, 2, 0, 2 * Math.PI);
     ctx.fill();
@@ -121,17 +126,78 @@ function drawRect() {
     ctx.fillRect(centerX, centerY, radius, radius);
 }
 
-export function updateLabels(inputR){
-    ctx.fillStyle = "black";
-    labels.forEach(label => {
-        ctx.fillText(computeRadius(label.formula, inputR), centerX + label.x + 5, centerY - label.y - 5);
-        drawPoints(label);
-    });
-}
+// export function updateLabels(inputR){
+//     ctx.clearRect(centerX - radius - 30, centerY - radius - 30,
+//         2 * radius + 60, 2 * radius + 60);
+//
+//     ctx.fillStyle = "black";
+//     labels.forEach(label => {
+//         ctx.fillText(computeRadius(label.formula, inputR), centerX + label.x + 5, centerY - label.y - 5);
+//         drawPoints(label);
+//     });
+// }
 
-function computeRadius(formula, inputR){
+function computeRadius(formula, inputR) {
     let newFormula = formula.replace("R", inputR);
     return eval(newFormula);
 }
 
+export function animateLabels(inputR) {
+    fadeOut(() => {
+        fadeIn(inputR);
+    });
+}
+
+function fadeOut(callback) {
+    let opacity = 1;
+
+    function animate() {
+        opacity -= 0.03;
+
+        draw();
+
+        ctx.font = '18px serif';
+        ctx.fillStyle = `rgba(0, 0, 0, ${opacity})`;
+        labels.forEach(label => {
+            if (oldRadius === 'R') {
+                ctx.fillText(label.text, centerX + label.x + 5, centerY - label.y - 5)
+            } else {
+                const computedValue = computeRadius(label.formula, oldRadius);
+                ctx.fillText(computedValue, centerX + label.x + 5, centerY - label.y - 5);
+            }
+        });
+
+        if (opacity > 0) {
+            requestAnimationFrame(animate);
+        } else {
+            callback();
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+function fadeIn(inputR) {
+    oldRadius = inputR;
+    let opacity = 0;
+
+    function animate() {
+        opacity += 0.03;
+
+        draw();
+
+        ctx.font = '18px serif';
+        ctx.fillStyle = `rgba(0, 0, 0, ${opacity})`;
+        labels.forEach(label => {
+            const computedValue = computeRadius(label.formula, inputR);
+            ctx.fillText(computedValue, centerX + label.x + 5, centerY - label.y - 5);
+        });
+
+        if (opacity < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
 
